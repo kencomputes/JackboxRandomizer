@@ -1,0 +1,14 @@
+pyinstaller --onefile --noupx --icon .\_reqs\jackbox.ico jackboxRandomizer.pyw
+
+add to spec file before a = Analysis (after initial run):
+
+added_files = [
+                ( '.\\_reqs', '_reqs' )
+              ]
+
+replace: datas=[],
+with: datas=added_files,
+
+once spec file exists, recompile app with this command:
+
+pyinstaller jackboxRandomizer.spec
